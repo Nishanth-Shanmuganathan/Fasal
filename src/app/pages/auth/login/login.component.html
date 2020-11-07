@@ -1,0 +1,54 @@
+<mat-card class="login-container pt-5 pb-5">
+  <form [formGroup]="loginForm" (ngSubmit)="registerUser()">
+    <div class="form-field">
+      <input
+        type="text"
+        placeholder="Enter the mail id..."
+        formControlName="email"
+        (blur)="checkErrors('email')"
+      />
+      <button mat-icon-button type="button" disabled class="icon">
+        <mat-icon>mail</mat-icon>
+      </button>
+      <span class="text-danger" *ngIf="error['email']">{{
+        error["email"]
+      }}</span>
+    </div>
+    <div class="form-field mt-4">
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder="Enter the password..."
+        formControlName="password"
+        (blur)="checkErrors('password')"
+      />
+      <button
+        mat-icon-button
+        type="button"
+        class="icon"
+        (click)="showPassword = !showPassword"
+      >
+        <mat-icon>
+          {{ showPassword ? "visibility_off" : "visibility" }}
+        </mat-icon>
+      </button>
+      <span class="text-danger" *ngIf="error['password']">{{
+        error["password"]
+      }}</span>
+    </div>
+    <div class="form-field text-center mt-4 mb-4">
+      <button mat-raised-button color="primary">Login</button>
+    </div>
+  </form>
+  <div class="text-center">
+    <p class="text-muted">
+      Forgot Password ?
+      <a class="route-link text-dark" (click)="resetPassword()">Reset link</a>
+    </p>
+    <p class="text-muted">
+      Create a new account ?
+      <a class="route-link text-dark" [routerLink]="['/', 'auth', 'register']"
+        >Register</a
+      >
+    </p>
+  </div>
+</mat-card>

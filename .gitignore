@@ -44,3 +44,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+#
+/src/server/node_modules
+/src/server/Fasal
+/src/server/config

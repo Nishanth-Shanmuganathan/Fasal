@@ -1,0 +1,71 @@
+<p matDialogTitle>Create a new profile</p>
+<div matDialogContent class="container">
+  <div class="row profile-cover mt-md-5">
+    <div
+      class="col-12 col-sm-10 col-md-6 row justify-content-center align-items-center"
+    >
+      <img
+        class="profile-pic"
+        [ngClass]="{ 'profile-unchanged': !profileChanged }"
+        [src]="imageSrc || '../../../assets/profile/male.svg'"
+        (click)="profilePicker.click()"
+      />
+      <input
+        type="file"
+        class="d-none"
+        #profilePicker
+        (change)="onImagePicked($event)"
+      />
+    </div>
+    <div class="col-12 col-sm-10 col-md-6">
+      <div class="form-field">
+        <input type="text" placeholder="Username" [(ngModel)]="username" />
+        <button mat-icon-button type="button" disabled class="icon">
+          <mat-icon>person</mat-icon>
+        </button>
+      </div>
+      <div class="form-field row">
+        <input
+          class="col-12 col-md-6"
+          type="number"
+          placeholder="Age"
+          [min]="10"
+          [(ngModel)]="age"
+        />
+        <div
+          class="col-12 col-md-6 d-flex justify-content-center align-items-center"
+        >
+          <button
+            mat-mini-fab
+            class="m-2 male"
+            (click)="isMale = true"
+            [ngClass]="{ 'gender-selected': isMale }"
+          >
+            <mat-icon svgIcon="male" aria-hidden="false"></mat-icon>
+          </button>
+          <button
+            mat-mini-fab
+            class="m-2 female"
+            (click)="isMale = false"
+            [ngClass]="{ 'gender-selected': !isMale }"
+          >
+            <mat-icon svgIcon="female" aria-hidden="false"></mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="form-field mt-5 row justify-content-center">
+        <button
+          mat-raised-button
+          color="primary"
+          class="m-2"
+          (click)="addUser()"
+        >
+          Save Profile
+        </button>
+        <button mat-raised-button color="accent" matDialogClose class="m-2">
+          Discard
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

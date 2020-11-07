@@ -1,0 +1,45 @@
+.login-container {
+  width: 100%;
+  min-width: 320px;
+}
+
+.form-field {
+  margin: 15px;
+  position: relative;
+}
+
+.form-field input {
+  margin: 10px 0;
+  padding: 0px 15px;
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 20px;
+  /* background-color: red; */
+  box-shadow: 3px 3px 5px inset silver,
+    1px 1px 2px silver;
+}
+
+.form-field span {
+  position: absolute;
+  top: 90%;
+  left: 10px;
+  z-index: 10;
+}
+
+.form-field button[mat-raised-button] {
+  min-width: 100px;
+  width: fit-content;
+}
+
+.form-field .icon {
+  position: absolute;
+  top: 15px;
+  right: 5px;
+}
+
+.route-link {
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}

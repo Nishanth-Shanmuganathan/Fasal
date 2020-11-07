@@ -1,0 +1,71 @@
+<mat-card class="login-container pt-5 pb-5">
+  <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+    <div class="form-field">
+      <input
+        type="text"
+        placeholder="Enter the mail id..."
+        formControlName="email"
+        (blur)="checkErrors('email')"
+      />
+      <button mat-icon-button type="button" disabled class="icon">
+        <mat-icon>mail</mat-icon>
+      </button>
+      <span class="text-danger" *ngIf="error['email']">{{
+        error["email"]
+      }}</span>
+    </div>
+    <div class="form-field">
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder="Enter the password..."
+        formControlName="password"
+        (blur)="checkErrors('password')"
+      />
+      <button
+        mat-icon-button
+        type="button"
+        class="icon"
+        (click)="showPassword = !showPassword"
+      >
+        <mat-icon>
+          {{ showPassword ? "visibility_off" : "visibility" }}
+        </mat-icon>
+      </button>
+      <span class="text-danger" *ngIf="error['password']">{{
+        error["password"]
+      }}</span>
+    </div>
+    <div class="form-field mt-4">
+      <input
+        [type]="showConfirmPassword ? 'text' : 'password'"
+        placeholder="Re-enter the password..."
+        formControlName="confirmPassword"
+        (blur)="checkErrors('confirmPassword')"
+      />
+      <button
+        mat-icon-button
+        type="button"
+        class="icon"
+        (click)="showConfirmPassword = !showConfirmPassword"
+      >
+        <mat-icon>
+          {{ showConfirmPassword ? "visibility_off" : "visibility" }}
+        </mat-icon>
+      </button>
+      <span class="text-danger" *ngIf="error['confirmPassword']">{{
+        error["confirmPassword"]
+      }}</span>
+    </div>
+    <div class="form-field text-center mt-4 mb-4">
+      <button mat-raised-button color="primary">Register</button>
+    </div>
+  </form>
+  <div class="form-field text-center">
+    <span class="text-muted"
+      >Already have an account ?
+      <a class="route-link text-dark" [routerLink]="['/', 'auth', 'login']"
+        >Login</a
+      ></span
+    >
+  </div>
+</mat-card>

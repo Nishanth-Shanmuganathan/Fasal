@@ -1,0 +1,15 @@
+<mat-card class="m-0">
+  <mat-card-content class="image">
+    <img
+      [src]="imageURL"
+      alt="profile"
+      width="150px"
+      height="150px"
+      (error)="errorImage($event)"
+    />
+    <div class="title mt-5">
+      <p>{{ profile.username }}</p>
+      <p class="text-muted">Age : {{ profile.age }}</p>
+    </div>
+  </mat-card-content>
+</mat-card>

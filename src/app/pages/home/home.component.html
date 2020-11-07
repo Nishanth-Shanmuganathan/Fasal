@@ -1,0 +1,35 @@
+<header>
+  <app-header></app-header>
+</header>
+<section class="container-fluid pt-4 pt-md-0 pb-5">
+  <div class="row mb-3 mr-0 m-md-5 justify-content-end">
+    <div class="col-auto pr-0">
+      <button mat-raised-button (click)="openDialog()">
+        <mat-icon>add</mat-icon>
+        <span>Create Profile</span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="row justify-content-center align-items-center"
+    *ngIf="!isLoading && profiles.length"
+  >
+    <div class="col-auto m-2 p-0" *ngFor="let profile of profiles">
+      <app-profile-card [profile]="profile"></app-profile-card>
+    </div>
+  </div>
+  <div
+    class="row flex-column justify-content-center align-items-center"
+    *ngIf="isLoading"
+  >
+    <img src="./../../../assets/home/loading.svg" />
+    <h2 class="mb-0 m-2">Loading... Please wait</h2>
+  </div>
+  <div
+    class="row flex-column justify-content-center align-items-center"
+    *ngIf="!isLoading && !profiles.length"
+  >
+    <img src="./../../../assets/home/empty.svg" />
+    <h2 class="mb-0 m-2">No profiles found. Please add some...</h2>
+  </div>
+</section>

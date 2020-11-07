@@ -1,0 +1,14 @@
+.auth-cover {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.row {
+  min-height: inherit;
+}
+
+.auth-bg {
+  width: 70%;
+  max-width: 400px;
+  max-height: 500px;
+}
