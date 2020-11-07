@@ -46,6 +46,4 @@ testem.log
 Thumbs.db
 
 #
-/src/server/node_modules
-/src/server/Fasal
-/src/server/config
+/src/server
